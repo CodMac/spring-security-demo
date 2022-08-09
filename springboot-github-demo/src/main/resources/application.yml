@@ -1,0 +1,22 @@
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          github:
+            clientId: ${GITHUB_ID}
+            clientSecret: ${GITHUB_SECRET}
+  session:
+    store-type: redis
+    redis.namespace: demo:spring:session
+  redis:
+    host: ${REDIS_HOST}
+    port: ${REDIS_PORT}
+    database: 0
+    password: ${REDIS_PWD}
+
+
+
+logging:
+  level:
+    org.springframework.security: debug
