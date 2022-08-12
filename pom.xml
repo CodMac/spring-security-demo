@@ -19,6 +19,7 @@
         <module>springboot-pwd-demo</module>
         <module>springboot-userdetails-demo</module>
         <module>springboot-authentication-event-demo</module>
+        <module>springboot-jwt-demo</module>
     </modules>
 
     <dependencyManagement>
