@@ -1,5 +1,3 @@
 # Project exclude paths
-/springboot-github-demo/target/
+**/target/
 /.idea/
-/springboot-userdetails-demo/target/
-/springboot-pwd-demo/target/

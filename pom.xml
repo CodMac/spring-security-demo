@@ -18,6 +18,7 @@
         <module>springboot-github-demo</module>
         <module>springboot-pwd-demo</module>
         <module>springboot-userdetails-demo</module>
+        <module>springboot-authentication-event-demo</module>
     </modules>
 
     <dependencyManagement>
