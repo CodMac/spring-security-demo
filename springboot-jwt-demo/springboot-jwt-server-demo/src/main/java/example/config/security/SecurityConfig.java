@@ -22,6 +22,8 @@ import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.oauth2.server.resource.web.BearerTokenAuthenticationEntryPoint;
 import org.springframework.security.oauth2.server.resource.web.access.BearerTokenAccessDeniedHandler;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.firewall.StrictHttpFirewall;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import java.security.interfaces.RSAPrivateKey;
 import java.security.interfaces.RSAPublicKey;
@@ -49,6 +51,8 @@ public class SecurityConfig {
                 .httpBasic(withDefaults())
                 .formLogin(withDefaults())
                 .csrf((csrf) -> csrf
+//                        .requireCsrfProtectionMatcher(new AntPathRequestMatcher("/login"))
+//                        .disable()
                         .ignoringAntMatchers("/token")
                         .ignoringAntMatchers("/logout")
                 )
@@ -72,5 +76,18 @@ public class SecurityConfig {
         JWK jwk = new RSAKey.Builder(this.key).privateKey(this.priv).build();
         JWKSource<SecurityContext> jwks = new ImmutableJWKSet<>(new JWKSet(jwk));
         return new NimbusJwtEncoder(jwks);
+    }
+
+    /**
+     * 解决 获取header中文乱码 报错
+     * @return
+     */
+    @Bean
+    public StrictHttpFirewall httpFirewall() {
+        StrictHttpFirewall firewall = new StrictHttpFirewall();
+        firewall.setAllowedHeaderNames((header) -> true);
+        firewall.setAllowedHeaderValues((header) -> true);
+        firewall.setAllowedParameterNames((parameter) -> true);
+        return firewall;
     }
 }
