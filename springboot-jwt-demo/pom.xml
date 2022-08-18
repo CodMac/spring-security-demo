@@ -11,14 +11,15 @@
 
     <artifactId>springboot-jwt-demo</artifactId>
     <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
     <modules>
         <module>springboot-jwt-client-demo</module>
         <module>springboot-jwt-server-demo</module>
     </modules>
-
-    <properties>
-        <maven.compiler.source>18</maven.compiler.source>
-        <maven.compiler.target>18</maven.compiler.target>
-    </properties>
 
 </project>
