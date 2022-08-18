@@ -13,6 +13,7 @@ import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
+import org.springframework.security.web.firewall.StrictHttpFirewall;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -46,4 +47,17 @@ public class SecurityConfig {
     }
     // @formatter:on
 
+
+    /**
+     * 解决 获取header中文乱码 报错
+     * @return
+     */
+    @Bean
+    public StrictHttpFirewall httpFirewall() {
+        StrictHttpFirewall firewall = new StrictHttpFirewall();
+        firewall.setAllowedHeaderNames((header) -> true);
+        firewall.setAllowedHeaderValues((header) -> true);
+        firewall.setAllowedParameterNames((parameter) -> true);
+        return firewall;
+    }
 }
