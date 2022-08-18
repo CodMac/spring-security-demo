@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package example.config.security.userDetails;
+package com.example.config.security.userDetails;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package example.controller;
+package com.example.controller;
 
 import java.time.Instant;
 import java.util.stream.Collectors;
