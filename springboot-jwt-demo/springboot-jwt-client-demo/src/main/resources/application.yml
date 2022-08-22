@@ -9,7 +9,6 @@ spring:
     password: ${REDIS_PWD}
 
 jwt:
-  private.key: classpath:jwt/app.key
   public.key: classpath:jwt/app.pub
 
 logging:
